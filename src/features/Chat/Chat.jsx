@@ -1,7 +1,13 @@
 import "./Chat.scss";
 
+import AccountInfoBlock from "../../components/AccountInfoBlock/AccountInfoBlock";
+
 function Chat() {
-  return <div>Test</div>;
+  return (
+    <div>
+      <AccountInfoBlock />
+    </div>
+  );
 }
 
 export default Chat;
