@@ -1,12 +1,20 @@
 import "./Chat.scss";
 
-import AccountInfoBlock from "../../components/AccountInfoBlock/AccountInfoBlock";
+import ChatListView from "../../components/ChatListView/ChatListView";
+import ChatView from "../../components/ChatView/ChatView";
 
 function Chat() {
   return (
-    <div>
-      <AccountInfoBlock />
-    </div>
+    <>
+      <div className="chat">
+        <div className="chat__chat-list-view">
+          <ChatListView />
+        </div>
+        <div className="chat__chat-msg-view">
+          <ChatView />
+        </div>
+      </div>
+    </>
   );
 }
 

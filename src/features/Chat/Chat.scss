@@ -1,0 +1,17 @@
+@import "src/styles/colors";
+
+.chat {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+  &__chat-list-view {
+    height: 100%;
+    flex: 3;
+    border-right: 1px solid $border-color;
+    overflow: hidden;
+  }
+  &__chat-msg-view {
+    flex: 5;
+  }
+}

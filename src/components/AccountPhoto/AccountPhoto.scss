@@ -1,10 +1,7 @@
 @import "src/styles/colors";
 
-.account-info-block {
-  $self: &;
-  padding: 2rem;
-  background: $background-color;
-
+.account-photo {
+  position: relative;
   &__acc-img {
     width: 4rem;
     height: 4rem;
@@ -13,13 +10,10 @@
   }
   &__status {
     position: absolute;
-    top: 4.5rem;
-    left: 4.8rem;
+    top: 2.6rem;
+    left: 2.6rem;
     width: 1.8rem;
     height: 1.8rem;
     color: $status-color-active;
-    &:hover {
-      cursor: pointer;
-    }
   }
 }

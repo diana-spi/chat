@@ -1,0 +1,16 @@
+@import "src/styles/colors";
+
+.income-msg {
+  $self: &;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 70%;
+  &__content-wrap {
+    #{$self}__date {
+      color: $secondary-color;
+      font-size: 1.2rem;
+      padding: 0.6rem 1.4rem;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import "src/styles/colors";
+
+.account-info-block {
+  $self: &;
+  padding: 2rem;
+  background: $background-color;
+
+  &__acc-photo {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

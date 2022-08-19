@@ -1,0 +1,42 @@
+@import "src/styles/colors";
+
+.chat-list-item {
+  $self: &;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid $border-color;
+  &__photo {
+    align-self: center;
+  }
+  &__msg-info {
+    overflow: hidden;
+    flex: 1;
+    padding-left: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    #{$self}__title-from {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: $primary-color;
+    }
+    #{$self}__preview_msg {
+      font-size: 1.4rem;
+      color: $secondary-color;
+      padding-top: 0.6rem;
+      overflow: hidden;
+      line-height: 1.2em;
+      height: 3em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+  &__date {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.4rem;
+    color: $primary-color;
+  }
+}

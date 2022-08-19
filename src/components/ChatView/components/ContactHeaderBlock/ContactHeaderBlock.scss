@@ -1,0 +1,16 @@
+@import "src/styles/colors";
+
+.contact-header-block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-bottom: 1px solid $border-color;
+  background: $background-color;
+
+  &__sender-name {
+    font-size: 2rem;
+    font-weight: 500;
+    color: $primary-color-dark;
+  }
+}

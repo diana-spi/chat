@@ -1,0 +1,39 @@
+@import "src/styles/colors";
+
+.send-msg-block {
+  $self: &;
+  background: $background-color;
+  padding: 2rem;
+  border-top: 1px solid $border-color;
+  &__input-container {
+    background: #fff;
+    padding: 1.6rem;
+    border: 1px solid $border-color;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    #{$self}__input-field {
+      width: 100%;
+      padding-left: 1rem;
+      border: none;
+      outline: none;
+      color: $primary-color;
+      font-size: 1.4rem;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: $secondary-color;
+        font-size: 1.4rem;
+        font-family: "Mulish", sans-serif;
+      }
+    }
+    #{$self}__icon {
+      width: 2rem;
+      height: 2rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

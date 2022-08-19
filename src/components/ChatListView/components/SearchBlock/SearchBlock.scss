@@ -1,0 +1,8 @@
+@import "src/styles/colors";
+
+.search-block {
+  $self: &;
+  padding: 2rem;
+  background: $background-color;
+  border-bottom: 2px solid $border-color;
+}
