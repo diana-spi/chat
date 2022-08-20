@@ -1,21 +1,24 @@
 import AccountPhoto from "../../../AccountPhoto/AccountPhoto";
 import "./ChatListItem.scss";
+import messages from "../../../../data/message";
+import moment from "moment";
 
-function ChatListItem() {
+const lastMsg = (contactId) => {
+  const filtered = messages.filter((message) => message.contact === contactId).sort((a, b) => a.date - b.date);
+  return filtered[filtered.length - 1];
+};
+
+function ChatListItem({ contact, onClick }) {
   return (
-    <div className="chat-list-item">
+    <div className="chat-list-item" onClick={onClick}>
       <div className="chat-list-item__photo">
-        <AccountPhoto />
+        <AccountPhoto src={contact.avatar} online={contact.online} />
       </div>
       <div className="chat-list-item__msg-info">
-        <div className="chat-list-item__title-from">Alice Freeman</div>
-        <div className="chat-list-item__preview_msg">
-          You are the worst! You are the worst! You are the worst! You are the worst! You are the worst! You are the
-          worst! You are the worst! You are the worst! You are the worst! You are the worst! You are the worst! You are
-          the worst!
-        </div>
+        <div className="chat-list-item__title-from">{contact.name}</div>
+        <div className="chat-list-item__preview_msg">{lastMsg(contact.id)?.text}</div>
       </div>
-      <div className="chat-list-item__date">Jun 12, 2017</div>
+      <div className="chat-list-item__date">{moment(lastMsg(contact.id)?.date).format("MMM DD, YYYY")}</div>
     </div>
   );
 }

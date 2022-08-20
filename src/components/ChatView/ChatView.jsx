@@ -3,14 +3,14 @@ import ContactHeaderBlock from "./components/ContactHeaderBlock/ContactHeaderBlo
 import "./ChatView.scss";
 import SendMsgBlock from "./components/SendMsgBlock/SendMsgBlock";
 
-function ChatView() {
+function ChatView({ selectedContact }) {
   return (
     <div className="chat-view">
       <div className="chat-view__header">
-        <ContactHeaderBlock />
+        <ContactHeaderBlock selectedContact={selectedContact} />
       </div>
       <div className="chat-view__chat">
-        <ChatBlock />
+        <ChatBlock selectedContact={selectedContact} />
       </div>
       <div className="chat-view__send">
         <SendMsgBlock />
