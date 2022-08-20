@@ -1,12 +1,16 @@
 import ChatListItem from "../ChatListItem/ChatListItem";
 import "./ChatListBlock.scss";
 import contacts from "../../../../data/contacts";
-import messages from "../../../../data/message";
 import { sortChatByDate } from "../../../../helpers/chatHelpers";
 import { useState } from "react";
+import { MessagesContext } from "../../../../App";
+import { useContext } from "react";
 
 function ChatListBlock({ onSelectContact }) {
+  const messages = useContext(MessagesContext);
+  console.log(messages);
   const [currentChat, setCurrentChat] = useState(sortChatByDate(contacts, messages)[0]);
+
   return (
     <div className="chat-list-block">
       <div className="chat-list-block__title">Chats</div>

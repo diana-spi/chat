@@ -5,9 +5,11 @@ import ChatView from "../../components/ChatView/ChatView";
 import { useState } from "react";
 import { sortChatByDate } from "../../helpers/chatHelpers";
 import contacts from "../../data/contacts";
-import messages from "../../data/message";
+import { MessagesContext } from "../../App";
+import { useContext } from "react";
 
 function Chat() {
+  const messages = useContext(MessagesContext);
   const [selectedContact, setSelectedContact] = useState(sortChatByDate(contacts, messages)[0]);
 
   return (

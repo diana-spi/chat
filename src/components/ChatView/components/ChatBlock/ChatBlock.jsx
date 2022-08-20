@@ -1,10 +1,11 @@
 import IncomeMsg from "../IncomeMsg/IncomeMsg";
 import OutcomeMsg from "../OutcomeMsg/OutcomeMsg";
 import "./ChatBlock.scss";
-import messages from "../../../../data/message";
-import { createContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { MessagesContext } from "../../../../App";
 
 function ChatBlock({ selectedContact }) {
+  const messages = useContext(MessagesContext);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {

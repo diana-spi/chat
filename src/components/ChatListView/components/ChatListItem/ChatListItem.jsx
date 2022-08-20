@@ -1,14 +1,12 @@
 import AccountPhoto from "../../../AccountPhoto/AccountPhoto";
 import "./ChatListItem.scss";
-import messages from "../../../../data/message";
 import moment from "moment";
-
-const lastMsg = (contactId) => {
-  const filtered = messages.filter((message) => message.contact === contactId).sort((a, b) => a.date - b.date);
-  return filtered[filtered.length - 1];
-};
+import { MessagesContext } from "../../../../App";
+import { useContext } from "react";
+import { lastMsgContact } from "../../../../helpers/chatHelpers";
 
 function ChatListItem({ contact, onClick, selected }) {
+  const messages = useContext(MessagesContext);
   return (
     <div className={`chat-list-item ${selected ? "chat-list-item--selected" : ""}`} onClick={onClick}>
       <div className="chat-list-item__photo">
@@ -16,9 +14,11 @@ function ChatListItem({ contact, onClick, selected }) {
       </div>
       <div className="chat-list-item__msg-info">
         <div className="chat-list-item__title-from">{contact.name}</div>
-        <div className="chat-list-item__preview_msg">{lastMsg(contact.id)?.text}</div>
+        <div className="chat-list-item__preview_msg">{lastMsgContact(contact, messages)?.text}</div>
       </div>
-      <div className="chat-list-item__date">{moment(lastMsg(contact.id)?.date).format("MMM DD, YYYY")}</div>
+      <div className="chat-list-item__date">
+        {moment(lastMsgContact(contact, messages)?.date).format("MMM DD, YYYY")}
+      </div>
     </div>
   );
 }
