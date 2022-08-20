@@ -5,8 +5,9 @@
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-  max-width: 70%;
+  width: 100%;
   &__content-wrap {
+    flex: 1;
     #{$self}__date {
       color: $secondary-color;
       font-size: 1.2rem;

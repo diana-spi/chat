@@ -9,7 +9,7 @@ const contacts = [
   },
   {
     id: "2",
-    name: "Jane Doe",
+    name: "Jaky Doe",
     online: randomBool(),
     avatar: "img/avatars/avatar-2.jpeg",
   },

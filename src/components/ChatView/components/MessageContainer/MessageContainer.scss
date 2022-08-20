@@ -1,13 +1,15 @@
 @import "src/styles/colors";
 
 .message-container {
-  width: max-content;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 70%;
   font-size: 1.4rem;
   padding: 1.4rem 1.4rem;
   border-radius: 30px;
+  overflow-wrap: break-word;
+  width: fit-content;
 
   &--income {
     background: $income-msg-background-color;

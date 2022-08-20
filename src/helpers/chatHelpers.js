@@ -1,9 +1,4 @@
-import contacts from "../data/contacts";
-import messages from "../data/message";
-
-//const lastActiveChat = (contact) => {};
-
-export const lastMsgContact = (contact) => {
+export const lastMsgContact = (contact, messages) => {
   const contactMsgs = messages
     .filter((message) => message.contact === contact.id)
     .sort((a, b) => {
@@ -12,9 +7,11 @@ export const lastMsgContact = (contact) => {
   return contactMsgs[contactMsgs.length - 1];
 };
 
-export const sortChatByDate = () => {
-  const sortedContacts = contacts.sort((a, b) => {
-    return lastMsgContact(b)?.date - lastMsgContact(a)?.date;
-  });
+export const sortChatByDate = (contacts, messages) => {
+  const sortedContacts = contacts
+    .filter((contact) => lastMsgContact(contact, messages))
+    .sort((a, b) => {
+      return lastMsgContact(b, messages)?.date - lastMsgContact(a, messages)?.date;
+    });
   return sortedContacts;
 };

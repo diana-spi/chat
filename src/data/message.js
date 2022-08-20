@@ -170,6 +170,55 @@ const messages = [
     contact: contacts[7].id,
     income: true,
   },
+  {
+    id: "25",
+    date: moment("2022-08-19 06:53:33").toDate(),
+    text: "Hey what are you doing? Would you like to come out to play?",
+    contact: contacts[1].id,
+    income: true,
+  },
+  {
+    id: "26",
+    date: moment("2022-08-19 06:56:05").toDate(),
+    text: "No. I’m a little busy right now. I’m writing a story for tomorrow’s storytelling competition.",
+    contact: contacts[1].id,
+    income: false,
+  },
+  {
+    id: "27",
+    date: moment("2022-08-19 07:46:05").toDate(),
+    text: "You have been working on that since the last week. How much more will you edit it?",
+    contact: contacts[1].id,
+    income: true,
+  },
+  {
+    id: "28",
+    date: moment("2022-08-19 07:56:34").toDate(),
+    text: "It’s a suspense story. It has to be perfect or else it will lose its charm.",
+    contact: contacts[1].id,
+    income: false,
+  },
+  {
+    id: "29",
+    date: moment("2022-08-19 07:59:24").toDate(),
+    text: "That is true, but I have full faith in your skills. After all, you have been winning this competition for so many years now.",
+    contact: contacts[1].id,
+    income: true,
+  },
+  {
+    id: "30",
+    date: moment("2022-08-19 08:04:24").toDate(),
+    text: "That’s true. But that does not give me a reason to be careless with my work, does it?",
+    contact: contacts[1].id,
+    income: false,
+  },
+  {
+    id: "31",
+    date: moment("2022-08-19 09:04:24").toDate(),
+    text: "That’s true. But that does not give me a reason to be careless with my work, does it?",
+    contact: contacts[7].id,
+    income: false,
+  },
 ];
 
 export default messages;

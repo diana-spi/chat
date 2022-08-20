@@ -42,4 +42,8 @@
     font-size: 1.2rem;
     color: $primary-color;
   }
+
+  &--selected {
+    background-color: $outcome-msg-background-color;
+  }
 }

@@ -1,11 +1,12 @@
 import MessageContainer from "../MessageContainer/MessageContainer";
 import "./OutcomeMsg.scss";
+import moment from "moment";
 
-function OutcomeMsg() {
+function OutcomeMsg({ message }) {
   return (
     <div className="outcome-msg">
-      <MessageContainer text="Outcome" date="12:00" type="outcome" />
-      <div className="outcome-msg__date">04.08.2022</div>
+      <MessageContainer type="outcome" message={message.text} />
+      <div className="outcome-msg__date">{moment(message.date).format("M/DD/YYYY h:mm A")}</div>
     </div>
   );
 }

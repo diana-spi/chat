@@ -3,10 +3,12 @@ import "./Chat.scss";
 import ChatListView from "../../components/ChatListView/ChatListView";
 import ChatView from "../../components/ChatView/ChatView";
 import { useState } from "react";
+import { sortChatByDate } from "../../helpers/chatHelpers";
 import contacts from "../../data/contacts";
+import messages from "../../data/message";
 
 function Chat() {
-  const [selectedContact, setSelectedContact] = useState(contacts[0]);
+  const [selectedContact, setSelectedContact] = useState(sortChatByDate(contacts, messages)[0]);
 
   return (
     <>

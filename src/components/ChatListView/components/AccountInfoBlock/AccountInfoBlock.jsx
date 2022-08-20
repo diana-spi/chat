@@ -5,7 +5,7 @@ function AccountInfoBlock() {
   return (
     <div className="account-info-block">
       <div className="account-info-block__acc-photo">
-        <AccountPhoto />
+        <AccountPhoto online={true} />
       </div>
     </div>
   );

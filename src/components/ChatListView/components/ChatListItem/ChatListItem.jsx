@@ -8,9 +8,9 @@ const lastMsg = (contactId) => {
   return filtered[filtered.length - 1];
 };
 
-function ChatListItem({ contact, onClick }) {
+function ChatListItem({ contact, onClick, selected }) {
   return (
-    <div className="chat-list-item" onClick={onClick}>
+    <div className={`chat-list-item ${selected ? "chat-list-item--selected" : ""}`} onClick={onClick}>
       <div className="chat-list-item__photo">
         <AccountPhoto src={contact.avatar} online={contact.online} />
       </div>
