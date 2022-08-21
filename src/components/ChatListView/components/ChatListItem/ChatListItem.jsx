@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { lastMsgContact } from "../../../../helpers/chatHelpers";
 
 function ChatListItem({ contact, onClick, selected }) {
-  const messages = useContext(MessagesContext);
+  const { messages } = useContext(MessagesContext);
   return (
     <div className={`chat-list-item ${selected ? "chat-list-item--selected" : ""}`} onClick={onClick}>
       <div className="chat-list-item__photo">

@@ -35,5 +35,9 @@
         cursor: pointer;
       }
     }
+    #{$self}__button {
+      border: none;
+      background: none;
+    }
   }
 }

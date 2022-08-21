@@ -3,16 +3,18 @@ import OutcomeMsg from "../OutcomeMsg/OutcomeMsg";
 import "./ChatBlock.scss";
 import { useContext, useEffect, useRef } from "react";
 import { MessagesContext } from "../../../../App";
+import { SelectedChatContext } from "../../../../features/Chat/Chat";
 
-function ChatBlock({ selectedContact }) {
-  const messages = useContext(MessagesContext);
+function ChatBlock() {
+  const { messages } = useContext(MessagesContext);
   const messagesEndRef = useRef(null);
+  const { selectedChat } = useContext(SelectedChatContext);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
   };
 
-  const filteredMessages = messages.filter((message) => message.contact === selectedContact.id);
+  const filteredMessages = messages.filter((message) => message.contact === selectedChat.id);
   useEffect(() => {
     scrollToBottom();
   }, [filteredMessages]);
@@ -22,17 +24,17 @@ function ChatBlock({ selectedContact }) {
       {filteredMessages.map((message) => {
         if (message.income) {
           return (
-            <>
-              <IncomeMsg key={message.id} message={message} selectedContact={selectedContact} />
+            <div key={message.id}>
+              <IncomeMsg message={message} />
               <div ref={messagesEndRef} />
-            </>
+            </div>
           );
         }
         return (
-          <>
-            <OutcomeMsg key={message.id} message={message} />
+          <div key={message.id}>
+            <OutcomeMsg message={message} />
             <div ref={messagesEndRef} />
-          </>
+          </div>
         );
       })}
     </div>

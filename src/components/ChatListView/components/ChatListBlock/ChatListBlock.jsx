@@ -2,14 +2,13 @@ import ChatListItem from "../ChatListItem/ChatListItem";
 import "./ChatListBlock.scss";
 import contacts from "../../../../data/contacts";
 import { sortChatByDate } from "../../../../helpers/chatHelpers";
-import { useState } from "react";
-import { MessagesContext } from "../../../../App";
 import { useContext } from "react";
+import { MessagesContext } from "../../../../App";
+import { SelectedChatContext } from "../../../../features/Chat/Chat";
 
-function ChatListBlock({ onSelectContact }) {
-  const messages = useContext(MessagesContext);
-  console.log(messages);
-  const [currentChat, setCurrentChat] = useState(sortChatByDate(contacts, messages)[0]);
+export function ChatListBlock() {
+  const { messages } = useContext(MessagesContext);
+  const { selectedChat, setSelectedChat } = useContext(SelectedChatContext);
 
   return (
     <div className="chat-list-block">
@@ -22,12 +21,11 @@ function ChatListBlock({ onSelectContact }) {
           )
           .map((contact) => (
             <ChatListItem
-              selected={currentChat.id === contact.id}
+              selected={selectedChat.id === contact.id}
               key={contact.id}
               contact={contact}
               onClick={() => {
-                onSelectContact(contact);
-                setCurrentChat(contact);
+                setSelectedChat(contact);
               }}
             />
           ))}
