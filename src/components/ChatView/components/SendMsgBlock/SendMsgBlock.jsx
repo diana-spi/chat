@@ -34,6 +34,7 @@ function SendMsgBlock() {
   const answerRequest = () => {
     axios.get("https://api.chucknorris.io/jokes/random").then((res) => {
       setNewIncomeMsg({
+        id: randomMinMax(100000, 999999),
         text: res.data.value,
         date: new Date(),
         income: true,
@@ -41,6 +42,9 @@ function SendMsgBlock() {
       });
     });
   };
+  useEffect(() => {
+    setEnteredMsg("");
+  }, [selectedChat]);
 
   useEffect(() => {
     if (newIncomeMsg) {

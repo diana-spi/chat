@@ -6,7 +6,7 @@ import { MessagesContext } from "../../../../App";
 import { SelectedChatContext } from "../../../../features/Chat/Chat";
 
 function ChatBlock() {
-  const { messages } = useContext(MessagesContext);
+  const { messages, setMessages } = useContext(MessagesContext);
   const messagesEndRef = useRef(null);
   const { selectedChat } = useContext(SelectedChatContext);
 
@@ -17,9 +17,17 @@ function ChatBlock() {
   const filteredMessages = messages.filter((message) => message.contact === selectedChat.id);
   useEffect(() => {
     scrollToBottom();
-    messages.map((message) => {
-      message.isSeen = true;
-    });
+    if (filteredMessages.some((message) => message.isSeen === false)) {
+      const seenMsg = messages.map((message) => {
+        filteredMessages.forEach((msg) => {
+          if (message.id === msg.id) {
+            message.isSeen = true;
+          }
+        });
+        return message;
+      });
+      setMessages(seenMsg);
+    }
   }, [filteredMessages]);
 
   return (

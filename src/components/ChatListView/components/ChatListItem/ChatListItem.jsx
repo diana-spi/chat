@@ -2,18 +2,15 @@ import AccountPhoto from "../../../AccountPhoto/AccountPhoto";
 import "./ChatListItem.scss";
 import moment from "moment";
 import { MessagesContext } from "../../../../App";
-import { SelectedChatContext } from "../../../../features/Chat/Chat";
 import { useContext, useEffect } from "react";
 import { lastMsgContact } from "../../../../helpers/chatHelpers";
 
 function ChatListItem({ contact, onClick, selected }) {
   const { messages } = useContext(MessagesContext);
-  const { selectedChat } = useContext(SelectedChatContext);
 
   const notSeenMsg = messages
     .filter((message) => message.contact === contact.id)
     .filter((msg) => msg.isSeen === false).length;
-
   useEffect(() => {
     if (notSeenMsg > 0) {
       const audio = new Audio("/audio/notification.mp3");
@@ -37,7 +34,7 @@ function ChatListItem({ contact, onClick, selected }) {
           {moment(lastMsgContact(contact, messages)?.date).format("MMM DD, YYYY")}
         </div>
         <div className="chat-list-item__notifications">
-          {notSeenMsg > 0 && <div className="chat-list-item__notifications-dot"></div>}
+          {notSeenMsg > 0 && <div className="chat-list-item__notifications-dot">{notSeenMsg}</div>}
         </div>
       </div>
     </div>
