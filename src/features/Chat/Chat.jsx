@@ -13,20 +13,27 @@ export const SelectedChatContext = createContext({
   setSelectedChat: () => {},
 });
 
+export const SearchRequestContext = createContext({
+  searchRequest: null,
+  setSearchRequest: () => {},
+});
+
 function Chat() {
   const { messages } = useContext(MessagesContext);
   const [selectedContact, setSelectedContact] = useState(sortChatByDate(contacts, messages)[0]);
-
+  const [searchRequest, setSearchRequest] = useState("");
   return (
     <SelectedChatContext.Provider value={{ selectedChat: selectedContact, setSelectedChat: setSelectedContact }}>
-      <div className="chat">
-        <div className="chat__chat-list-view">
-          <ChatListView />
+      <SearchRequestContext.Provider value={{ searchRequest, setSearchRequest }}>
+        <div className="chat">
+          <div className="chat__chat-list-view">
+            <ChatListView />
+          </div>
+          <div className="chat__chat-msg-view">
+            <ChatView />
+          </div>
         </div>
-        <div className="chat__chat-msg-view">
-          <ChatView />
-        </div>
-      </div>
+      </SearchRequestContext.Provider>
     </SelectedChatContext.Provider>
   );
 }

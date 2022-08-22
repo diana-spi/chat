@@ -34,6 +34,11 @@
       -webkit-line-clamp: 2;
       line-clamp: 2;
       -webkit-box-orient: vertical;
+
+      #{$self}__start-chat-placeholder {
+        color: $title-color;
+        font-style: italic;
+      }
     }
   }
   &__info-wrap {
