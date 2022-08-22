@@ -4,10 +4,29 @@
   $self: &;
   padding: 2rem;
   background: $background-color;
+  display: flex;
+  justify-content: space-between;
 
   &__acc-photo {
     &:hover {
       cursor: pointer;
+    }
+  }
+  &__log-out {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    #{$self}__log-out-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      transform: translateY(1.3px);
     }
   }
 }
