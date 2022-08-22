@@ -17,6 +17,9 @@ function ChatBlock() {
   const filteredMessages = messages.filter((message) => message.contact === selectedChat.id);
   useEffect(() => {
     scrollToBottom();
+    messages.map((message) => {
+      message.isSeen = true;
+    });
   }, [filteredMessages]);
 
   return (

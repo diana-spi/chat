@@ -25,7 +25,7 @@ function SendMsgBlock() {
       ]);
       setTimeout(() => {
         answerRequest();
-      }, randomMinMax(1000, 1500));
+      }, randomMinMax(3000, 4000));
 
       setEnteredMsg("");
     }
@@ -46,6 +46,9 @@ function SendMsgBlock() {
     if (newIncomeMsg) {
       setMessages([...messages, newIncomeMsg]);
       setNewIncomeMsg(null);
+      if (selectedChat.id !== newIncomeMsg.contact) {
+        newIncomeMsg.isSeen = false;
+      }
     }
   }, [newIncomeMsg]);
 
