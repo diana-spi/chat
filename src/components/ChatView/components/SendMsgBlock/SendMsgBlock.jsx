@@ -4,6 +4,7 @@ import { MessagesContext } from "../../../../App";
 import { useContext, useEffect, useState } from "react";
 import { SelectedChatContext } from "../../../../features/Chat/Chat";
 import { randomMinMax } from "../../../../helpers/random";
+import { playNotification } from "../../../../helpers/playNotification";
 import axios from "axios";
 
 function SendMsgBlock() {
@@ -25,7 +26,7 @@ function SendMsgBlock() {
       ]);
       setTimeout(() => {
         answerRequest();
-      }, randomMinMax(3000, 4000));
+      }, randomMinMax(10000, 15000));
 
       setEnteredMsg("");
     }
@@ -49,6 +50,7 @@ function SendMsgBlock() {
   useEffect(() => {
     if (newIncomeMsg) {
       setMessages([...messages, newIncomeMsg]);
+      playNotification();
       setNewIncomeMsg(null);
       if (selectedChat.id !== newIncomeMsg.contact) {
         newIncomeMsg.isSeen = false;

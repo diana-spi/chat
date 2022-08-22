@@ -4,6 +4,7 @@ import moment from "moment";
 import { MessagesContext } from "../../../../App";
 import { useContext, useEffect } from "react";
 import { lastMsgContact } from "../../../../helpers/chatHelpers";
+import { playNotification } from "../../../../helpers/playNotification";
 
 function ChatListItem({ contact, onClick, selected }) {
   const { messages } = useContext(MessagesContext);
@@ -13,10 +14,7 @@ function ChatListItem({ contact, onClick, selected }) {
     .filter((msg) => msg.isSeen === false).length;
   useEffect(() => {
     if (notSeenMsg > 0) {
-      const audio = new Audio("/audio/notification.mp3");
-      audio.addEventListener("canplaythrough", (event) => {
-        audio.play();
-      });
+      playNotification();
     }
   }, [notSeenMsg]);
 
