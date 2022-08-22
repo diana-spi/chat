@@ -1,0 +1,33 @@
+@import "src/styles/colors";
+
+.button-login {
+  $self: &;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $title-color;
+  border-radius: 3rem;
+  padding: 1rem;
+  gap: 1.6rem;
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.4rem;
+  }
+  &__text {
+    font-size: 1.6rem;
+    color: $title-color;
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px $title-color;
+  }
+  &:active {
+    cursor: pointer;
+    box-shadow: 0 0 2px $title-color;
+    transform: translateY(1.3px);
+  }
+}

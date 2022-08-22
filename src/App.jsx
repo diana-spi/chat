@@ -1,7 +1,10 @@
 import "./App.scss";
 import Chat from "./features/Chat/Chat";
+import Login from "./features/Login/Login";
 import { createContext, useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import messages from "./data/message";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export const MessagesContext = createContext({
   messages,
@@ -28,9 +31,21 @@ function App() {
 
   return (
     <div className="App">
-      <MessagesContext.Provider value={value}>
-        <Chat />
-      </MessagesContext.Provider>
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route
+              path="/chat"
+              element={
+                <MessagesContext.Provider value={value}>
+                  <Chat />
+                </MessagesContext.Provider>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </GoogleOAuthProvider>
     </div>
   );
 }
