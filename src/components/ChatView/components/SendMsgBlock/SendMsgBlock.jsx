@@ -3,29 +3,51 @@ import { PaperPlaneRight } from "phosphor-react";
 import { MessagesContext } from "../../../../App";
 import { useContext, useEffect, useState } from "react";
 import { SelectedChatContext } from "../../../../features/Chat/Chat";
+import { randomMinMax } from "../../../../helpers/random";
+import axios from "axios";
 
 function SendMsgBlock() {
   const { messages, setMessages } = useContext(MessagesContext);
-  const [enteredMsg, setEnteredMsg] = useState("");
   const { selectedChat } = useContext(SelectedChatContext);
+  const [enteredMsg, setEnteredMsg] = useState("");
+  const [newIncomeMsg, setNewIncomeMsg] = useState(null);
 
   const onSendMsg = () => {
-    setMessages([
-      ...messages,
-      {
-        text: enteredMsg,
+    if (enteredMsg.length > 0) {
+      setMessages([
+        ...messages,
+        {
+          text: enteredMsg,
+          date: new Date(),
+          income: false,
+          contact: selectedChat.id,
+        },
+      ]);
+      setTimeout(() => {
+        answerRequest();
+      }, randomMinMax(1000, 1500));
+
+      setEnteredMsg("");
+    }
+  };
+
+  const answerRequest = () => {
+    axios.get("https://api.chucknorris.io/jokes/random").then((res) => {
+      setNewIncomeMsg({
+        text: res.data.value,
         date: new Date(),
-        income: false,
+        income: true,
         contact: selectedChat.id,
-      },
-    ]);
-    setTimeout(() => {}, 10000);
-    setEnteredMsg("");
+      });
+    });
   };
 
   useEffect(() => {
-    setEnteredMsg("");
-  }, [selectedChat]);
+    if (newIncomeMsg) {
+      setMessages([...messages, newIncomeMsg]);
+      setNewIncomeMsg(null);
+    }
+  }, [newIncomeMsg]);
 
   return (
     <div className="send-msg-block">
