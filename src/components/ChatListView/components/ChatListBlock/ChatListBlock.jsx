@@ -6,11 +6,13 @@ import { useContext } from "react";
 import { MessagesContext } from "../../../../App";
 import { SelectedChatContext } from "../../../../features/Chat/Chat";
 import { SearchRequestContext } from "../../../../features/Chat/Chat";
+import { ChatViewOpenedContext } from "../../../../features/Chat/Chat";
 
 export function ChatListBlock() {
   const { messages } = useContext(MessagesContext);
   const { selectedChat, setSelectedChat } = useContext(SelectedChatContext);
   const { searchRequest } = useContext(SearchRequestContext);
+  const { setChatViewOpened } = useContext(ChatViewOpenedContext);
 
   return (
     <div className="chat-list-block">
@@ -27,6 +29,7 @@ export function ChatListBlock() {
                   contact={contact}
                   onClick={() => {
                     setSelectedChat(contact);
+                    setChatViewOpened(true);
                   }}
                 />
               ))
@@ -43,6 +46,7 @@ export function ChatListBlock() {
                   contact={contact}
                   onClick={() => {
                     setSelectedChat(contact);
+                    setChatViewOpened(true);
                   }}
                 />
               ))}

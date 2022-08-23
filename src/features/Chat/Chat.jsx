@@ -19,8 +19,14 @@ export const SearchRequestContext = createContext({
   setSearchRequest: () => {},
 });
 
+export const ChatViewOpenedContext = createContext({
+  ChatViewOpened: true,
+  setChatViewOpened: () => {},
+});
+
 function Chat() {
   const { messages } = useContext(MessagesContext);
+  const [ChatViewOpened, setChatViewOpened] = useState(true);
   const [selectedContact, setSelectedContact] = useState(sortChatByDate(contacts, messages)[0]);
   const [searchRequest, setSearchRequest] = useState("");
   if (!localStorage.getItem("loggedIn")) {
@@ -30,14 +36,16 @@ function Chat() {
   return (
     <SelectedChatContext.Provider value={{ selectedChat: selectedContact, setSelectedChat: setSelectedContact }}>
       <SearchRequestContext.Provider value={{ searchRequest, setSearchRequest }}>
-        <div className="chat">
-          <div className="chat__chat-list-view">
-            <ChatListView />
+        <ChatViewOpenedContext.Provider value={{ ChatViewOpened, setChatViewOpened }}>
+          <div className="chat">
+            <div className={`chat__chat-list-view ${ChatViewOpened ? "close" : ""}`}>
+              <ChatListView />
+            </div>
+            <div className={`chat__chat-msg-view ${ChatViewOpened ? "" : "close"}`}>
+              <ChatView />
+            </div>
           </div>
-          <div className="chat__chat-msg-view">
-            <ChatView />
-          </div>
-        </div>
+        </ChatViewOpenedContext.Provider>
       </SearchRequestContext.Provider>
     </SelectedChatContext.Provider>
   );

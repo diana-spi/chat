@@ -15,3 +15,9 @@
     flex: 5;
   }
 }
+
+@media screen and (max-width: 48.75em) {
+  .close {
+    display: none;
+  }
+}

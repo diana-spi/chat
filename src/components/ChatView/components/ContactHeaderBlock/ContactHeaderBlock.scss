@@ -14,3 +14,20 @@
     color: $primary-color-dark;
   }
 }
+
+@media screen and (min-width: 48.81em) {
+  .contact-header-block {
+    &__back-icon {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 48.75em) {
+  .contact-header-block {
+    &__back-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
