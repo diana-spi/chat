@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Reenbit-test-task-chat
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Reenbit-test-task-chat](#reenbit-test-task-chat)
+  - [Table of Contents](#table-of-contents)
+  - [General Information](#general-information)
+  - [Demo](#demo)
+  - [Technologies Used](#technologies-used)
+  - [Features](#features)
+  - [Setup](#setup)
+  - [Usage](#usage)
+  - [Contact](#contact)
 
-In the project directory, you can run:
+## General Information
 
-### `npm start`
+This is a React chat application that provides the main functions you'd expect from a chat, such as sending messages, creating new chats, notifications.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Here is the working demo: https://chat-reenbit-spivak.herokuapp.com/
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- HTML5
+- Sass
+- Axios
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Log in with login and password;
+- Log in with Google Account;
+- Static contacts and chats;
+- Chats history;
+- Sending message;
+- Search contacts by contact name;
+- Reciving answer from contact after 10-15 seconds (random) using Chuck Norris API (https://api.chucknorris.io/);
+- Audio and bage notifications about new messages;
+- Online/offline (random) status of contact;
+- Store data to local storage (keep messaging history after page re-loading);
+- Log out;
+- Adaptive design.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
-### `npm run eject`
+Installation:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`git clone https://github.com/diana-spi/reenbit-test-task-chat.git`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`cd reenbit-test-task-chat`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`npm install`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To Start Server:
 
-## Learn More
+`npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To Visit App:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`localhost:3000/`
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For login to application use next credentials:
 
-### Analyzing the Bundle Size
+login: `user1`
+password: `12345678`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contact
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created by [@diana-spi](https://github.com/diana-spi)
