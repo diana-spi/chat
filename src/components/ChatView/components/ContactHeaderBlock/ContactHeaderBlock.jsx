@@ -11,7 +11,10 @@ function ContactHeaderBlock() {
 
   return (
     <div className="contact-header-block">
-      <ArrowLeft className="contact-header-block__back-icon" onClick={() => setChatViewOpened(false)} />
+      <div className="contact-header-block__back-button" onClick={() => setChatViewOpened(false)}>
+        <ArrowLeft className="contact-header-block__back-icon" />
+      </div>
+
       <div className="contact-header-block__photo">
         <AccountPhoto src={selectedChat.avatar} online={selectedChat.online} />
       </div>

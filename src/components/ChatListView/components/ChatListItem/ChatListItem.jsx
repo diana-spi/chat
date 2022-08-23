@@ -12,6 +12,7 @@ function ChatListItem({ contact, onClick, selected }) {
   const notSeenMsg = messages
     .filter((message) => message.contact === contact.id)
     .filter((msg) => msg.isSeen === false).length;
+
   useEffect(() => {
     if (notSeenMsg > 0) {
       playNotification();

@@ -20,13 +20,13 @@ export const SearchRequestContext = createContext({
 });
 
 export const ChatViewOpenedContext = createContext({
-  ChatViewOpened: true,
+  ChatViewOpened: false,
   setChatViewOpened: () => {},
 });
 
 function Chat() {
   const { messages } = useContext(MessagesContext);
-  const [ChatViewOpened, setChatViewOpened] = useState(true);
+  const [ChatViewOpened, setChatViewOpened] = useState(false);
   const [selectedContact, setSelectedContact] = useState(sortChatByDate(contacts, messages)[0]);
   const [searchRequest, setSearchRequest] = useState("");
   if (!localStorage.getItem("loggedIn")) {

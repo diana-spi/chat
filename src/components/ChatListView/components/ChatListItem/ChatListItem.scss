@@ -69,8 +69,9 @@
       }
     }
   }
-
-  &--selected {
-    background-color: $outcome-msg-background-color;
+  @media screen and (min-width: 48.81em) {
+    &--selected {
+      background-color: $outcome-msg-background-color;
+    }
   }
 }

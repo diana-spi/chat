@@ -25,9 +25,19 @@
 
 @media screen and (max-width: 48.75em) {
   .contact-header-block {
-    &__back-icon {
-      width: 2rem;
-      height: 2rem;
+    $self: &;
+    &__back-button {
+      background: none;
+      border: none;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      #{$self}__back-icon {
+        width: 2rem;
+        height: 2rem;
+      }
     }
   }
 }
