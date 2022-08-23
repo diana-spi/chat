@@ -28,6 +28,7 @@ function SendMsgBlock() {
           date: new Date(),
           income: false,
           contact: selectedChat.id,
+          isSeen: true,
         },
       ]);
       setTimeout(() => {
