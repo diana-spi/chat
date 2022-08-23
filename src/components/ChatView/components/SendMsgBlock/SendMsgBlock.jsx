@@ -6,6 +6,7 @@ import { SelectedChatContext } from "../../../../features/Chat/Chat";
 import { randomMinMax } from "../../../../helpers/random";
 import { playNotification } from "../../../../helpers/playNotification";
 import axios from "axios";
+import { audio } from "../../../../helpers/playNotification";
 
 function SendMsgBlock() {
   const { messages, setMessages } = useContext(MessagesContext);
@@ -14,6 +15,11 @@ function SendMsgBlock() {
   const [newIncomeMsg, setNewIncomeMsg] = useState(null);
 
   const onSendMsg = () => {
+    // fixed bug with playing notification sound on IOS
+    //https://web.archive.org/web/20170215083556/http://www.ibm.com/developerworks/library/wa-ioshtml5/
+    audio.play();
+    audio.pause();
+
     if (enteredMsg.length > 0) {
       setMessages([
         ...messages,
