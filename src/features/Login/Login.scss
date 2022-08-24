@@ -23,6 +23,15 @@
         display: flex;
         flex-direction: column;
         gap: 1.6rem;
+
+        #{$self}__error-msg {
+          color: red;
+          font-size: 1.4rem;
+
+          &--disabled {
+            display: none;
+          }
+        }
       }
       #{$self}__button {
         width: 100%;
