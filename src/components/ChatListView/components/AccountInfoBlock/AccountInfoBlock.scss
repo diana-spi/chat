@@ -24,6 +24,7 @@
     }
     &:hover {
       cursor: pointer;
+      color: $title-color;
     }
     &:active {
       transform: translateY(1.3px);

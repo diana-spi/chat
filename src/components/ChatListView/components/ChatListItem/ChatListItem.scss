@@ -72,6 +72,19 @@
   @media screen and (min-width: 48.81em) {
     &--selected {
       background-color: $outcome-msg-background-color;
+      #{$self}__msg-info {
+        #{$self}__title-from {
+          color: #fff;
+        }
+        #{$self}__preview_msg {
+          color: #fff;
+        }
+      }
+      #{$self}__info-wrap {
+        #{$self}__date {
+          color: #fff;
+        }
+      }
     }
   }
 }
