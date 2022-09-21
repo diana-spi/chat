@@ -1,8 +1,8 @@
-# Reenbit-test-task-chat
+# Chat
 
 ## Table of Contents
 
-- [Reenbit-test-task-chat](#reenbit-test-task-chat)
+- [Chat](#chat)
   - [Table of Contents](#table-of-contents)
   - [General Information](#general-information)
   - [Demo](#demo)
@@ -18,7 +18,7 @@ This is a React chat application that provides the main functions you'd expect f
 
 ## Demo
 
-Here is the working demo: https://chat-reenbit-spivak.herokuapp.com/
+Here is the working demo: [https://chat-spivak.herokuapp.com/](https://chat-spivak.herokuapp.com/)
 
 ## Technologies Used
 
@@ -48,9 +48,9 @@ Clone down this repository. You will need `node` and `npm` installed globally on
 
 Installation:
 
-`git clone https://github.com/diana-spi/reenbit-test-task-chat.git`
+`git clone https://github.com/diana-spi/chat.git`
 
-`cd reenbit-test-task-chat`
+`cd chat`
 
 `npm install`
 
